@@ -1,5 +1,5 @@
 homepage: "https://www.sealmetrics.com"
 documentation: "https://docs.sealmetrics.com"
 versions:
-  - sha: b372ae2757e3631a3c0610da23a46ade70df7c1d
+  - sha: 3370bcfd73d1291f2b9b374f724ed30eb872a990
     changeNotes: Initial release of Sealmetrics Tracking template.
