@@ -1,81 +1,81 @@
 # Sealmetrics Tracking - Google Tag Manager Template
 
-Template oficial de Sealmetrics para Google Tag Manager. Permite trackear pageviews, microconversiones y conversiones de forma sencilla y sin cookies.
+Official Sealmetrics template for Google Tag Manager. Track pageviews, microconversions, and conversions easily with cookieless analytics.
 
-## Instalación
+## Installation
 
-### Opción 1: Importar manualmente
+### Option 1: Manual Import
 
-1. Descarga el archivo `template.tpl`
-2. En Google Tag Manager, ve a **Templates** > **Tag Templates** > **New**
-3. Haz clic en los tres puntos (⋮) y selecciona **Import**
-4. Selecciona el archivo `template.tpl` descargado
-5. Haz clic en **Save**
+1. Download the `template.tpl` file
+2. In Google Tag Manager, go to **Templates** > **Tag Templates** > **New**
+3. Click the three dots (⋮) and select **Import**
+4. Select the downloaded `template.tpl` file
+5. Click **Save**
 
-### Opción 2: Community Template Gallery (próximamente)
+### Option 2: Community Template Gallery (coming soon)
 
-El template estará disponible en la galería oficial de Google Tag Manager.
+The template will be available in the official Google Tag Manager gallery.
 
-## Uso
+## Usage
 
-### 1. Pageview (Páginas vistas)
+### 1. Pageview
 
-Para trackear visitas a páginas:
+To track page visits:
 
-1. Crea un nuevo Tag y selecciona **Sealmetrics Tracking**
+1. Create a new Tag and select **Sealmetrics Tracking**
 2. **Event Type**: Pageview
-3. **Account ID**: Tu ID de cuenta de Sealmetrics
-4. **Content Grouping** (opcional): Categoría de la página (ej: "blog", "producto")
+3. **Account ID**: Your Sealmetrics Account ID
+4. **Content Grouping** (optional): Page category (e.g., "blog", "product")
 5. **Trigger**: All Pages
 
-### 2. Microconversion (Añadir al carrito, formularios, etc.)
+### 2. Microconversion (Add to Cart, Form Submissions, etc.)
 
-Para trackear acciones intermedias:
+To track intermediate actions:
 
-1. Crea un nuevo Tag y selecciona **Sealmetrics Tracking**
+1. Create a new Tag and select **Sealmetrics Tracking**
 2. **Event Type**: Microconversion
-3. **Account ID**: Tu ID de cuenta
-4. **Event Label**: Nombre del evento (ej: "add_to_cart", "newsletter_signup")
-5. **Don't count as pageview**: ✅ Activado (recomendado)
-6. **Custom Properties** (opcional): Añade datos adicionales
+3. **Account ID**: Your Account ID
+4. **Event Label**: Event name (e.g., "add_to_cart", "newsletter_signup")
+5. **Don't count as pageview**: ✅ Enabled (recommended)
+6. **Custom Properties** (optional): Add additional data
    - `product-id`: `12345`
    - `product-price`: `49.99`
-7. **Trigger**: El evento que dispara la acción (clic en botón, envío de formulario, etc.)
+7. **Trigger**: The event that fires the action (button click, form submission, etc.)
 
-### 3. Conversion (Compra, Lead, etc.)
+### 3. Conversion (Purchase, Lead, etc.)
 
-Para trackear conversiones completadas:
+To track completed conversions:
 
-1. Crea un nuevo Tag y selecciona **Sealmetrics Tracking**
+1. Create a new Tag and select **Sealmetrics Tracking**
 2. **Event Type**: Conversion
-3. **Account ID**: Tu ID de cuenta
-4. **Event Label**: Nombre de la conversión (ej: "purchase", "lead")
-5. **Conversion Value**: Valor monetario (ej: "99.99")
-6. **Don't count as pageview**: ✅ Activado (recomendado)
-7. **Custom Properties** (opcional): Datos adicionales de la conversión
-8. **Trigger**: Página de confirmación o evento de compra
+3. **Account ID**: Your Account ID
+4. **Event Label**: Conversion name (e.g., "purchase", "lead")
+5. **Conversion Value**: Monetary value (e.g., "99.99")
+6. **Don't count as pageview**: ✅ Enabled (recommended)
+7. **Custom Properties** (optional): Additional conversion data
+8. **Trigger**: Confirmation page or purchase event
 
-## Campos del Template
+## Template Fields
 
-| Campo | Tipo | Descripción |
+| Field | Type | Description |
 |-------|------|-------------|
-| Event Type | Selector | Tipo de evento: Pageview, Microconversion, Conversion |
-| Account ID | Texto | Tu ID de cuenta de Sealmetrics (obligatorio) |
-| Event Label | Texto | Nombre descriptivo del evento (micro/conversión) |
-| Conversion Value | Texto | Valor monetario de la conversión |
-| Content Grouping | Texto | Categoría de la página (solo pageview) |
-| Don't count as pageview | Checkbox | Evita contar como pageview adicional |
-| Enable session tracking | Checkbox | Mantiene continuidad de sesión |
-| Custom Properties | Tabla | Propiedades personalizadas key-value |
+| Event Type | Dropdown | Event type: Pageview, Microconversion, Conversion |
+| Account ID | Text | Your Sealmetrics Account ID (required) |
+| Event Label | Text | Descriptive event name (micro/conversion) |
+| Conversion Value | Text | Monetary value of the conversion |
+| Content Grouping | Text | Page category (pageview only) |
+| Don't count as pageview | Checkbox | Prevents counting as additional pageview |
+| Enable Super-Privacy Tracking | Checkbox | Aggregated data mode without attribution |
+| Custom Properties | Table | Custom key-value properties |
 
-## Ejemplos de Custom Properties
+## Custom Properties Examples
 
 ### Add to Cart
 ```
 product-id: SKU12345
-product-name: Camiseta Azul
+product-name: Blue T-Shirt
 product-price: 29.99
-product-category: Ropa
+product-category: Clothing
 quantity: 2
 ```
 
@@ -87,19 +87,19 @@ shipping-method: express
 coupon-code: WELCOME10
 ```
 
-## Características
+## Features
 
-- **Cookieless**: Tracking sin cookies, 100% compatible con GDPR
-- **Session Tracking**: Mantiene la sesión del usuario sin cookies
-- **Custom Properties**: Añade datos personalizados a cada evento
-- **Fácil configuración**: Interfaz intuitiva con campos condicionales
+- **Cookieless**: Cookie-free tracking, 100% GDPR compliant
+- **Super-Privacy Mode**: Aggregated data without source attribution
+- **Custom Properties**: Add custom data to each event
+- **Easy Configuration**: Intuitive interface with conditional fields
 
-## Soporte
+## Support
 
-- Documentación: https://docs.sealmetrics.com
-- Web: https://www.sealmetrics.com
+- Documentation: https://docs.sealmetrics.com
+- Website: https://www.sealmetrics.com
 - Email: support@sealmetrics.com
 
-## Licencia
+## License
 
 Apache License 2.0
