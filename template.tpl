@@ -15,6 +15,10 @@ ___INFO___
   "securityGroups": [],
   "displayName": "Sealmetrics Tracking Tag",
   "description": "Track pageviews, conversions and custom events with Sealmetrics cookieless analytics.",
+  "categories": [
+    "ANALYTICS",
+    "CONVERSIONS"
+  ],
   "containerContexts": [
     "WEB"
   ]

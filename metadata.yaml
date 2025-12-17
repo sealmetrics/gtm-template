@@ -1,12 +1,5 @@
 homepage: "https://www.sealmetrics.com"
 documentation: "https://docs.sealmetrics.com"
 versions:
-  - sha: HEAD
-    changeNotes: |
-      Initial release of Sealmetrics Tracking template.
-      - Support for Pageview tracking
-      - Support for Microconversion tracking (add-to-cart, form submissions, etc.)
-      - Support for Conversion tracking with revenue values
-      - Custom properties support for detailed event data
-      - Session tracking for user journey continuity
-      - GDPR-compliant cookieless analytics
+  - sha: b372ae2757e3631a3c0610da23a46ade70df7c1d
+    changeNotes: Initial release of Sealmetrics Tracking template.
