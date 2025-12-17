@@ -489,10 +489,4 @@ scenarios: []
 
 ___NOTES___
 
-Sealmetrics Tracking Tag v1.0
-
-Track pageviews, microconversions, and conversions with GDPR-compliant
-cookieless analytics.
-
-Documentation: https://docs.sealmetrics.com
-Support: support@sealmetrics.com
+Created on 17/12/2024, 12:00:00
