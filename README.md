@@ -1,10 +1,10 @@
 # Sealmetrics Tracking - Google Tag Manager Template
 
-Official Sealmetrics template for Google Tag Manager. Track pageviews, microconversions, and conversions easily with cookieless analytics.
+Official Sealmetrics template for Google Tag Manager. Track pageviews, microconversions, and conversions with cookieless, GDPR-compliant analytics.
 
 ## Installation
 
-### Option 1: Manual Import
+### Option 1: Community Template (template.tpl)
 
 1. Download the `template.tpl` file
 2. In Google Tag Manager, go to **Templates** > **Tag Templates** > **New**
@@ -12,48 +12,55 @@ Official Sealmetrics template for Google Tag Manager. Track pageviews, microconv
 4. Select the downloaded `template.tpl` file
 5. Click **Save**
 
-### Option 2: Community Template Gallery (coming soon)
+### Option 2: Container Import (sealmetrics-gtm-template.json)
 
-The template will be available in the official Google Tag Manager gallery.
+If you prefer a ready-to-use container with pre-configured tags, triggers, and variables:
+
+1. Download `sealmetrics-gtm-template.json`
+2. In Google Tag Manager, go to **Admin** > **Import Container**
+3. Upload the JSON file
+4. Choose **"Merge"** and select **"Rename conflicting tags"**
+5. Go to **Variables** and update `SealMetrics Account ID` with your Account ID
 
 ## Usage
 
 ### 1. Pageview
 
-To track page visits:
+Track page visits:
 
 1. Create a new Tag and select **Sealmetrics Tracking**
 2. **Event Type**: Pageview
 3. **Account ID**: Your Sealmetrics Account ID
-4. **Content Grouping** (optional): Page category (e.g., "blog", "product")
-5. **Trigger**: All Pages
+4. **Pixel URL**: Leave default (`https://t.sealmetrics.com`) unless using a custom domain
+5. **Content Grouping** (optional): Page category (e.g., "blog", "product")
+6. **Trigger**: All Pages
+
+The tracker automatically handles SPA navigation (History API), so you only need one pageview tag.
 
 ### 2. Microconversion (Add to Cart, Form Submissions, etc.)
 
-To track intermediate actions:
+Track intermediate actions:
 
 1. Create a new Tag and select **Sealmetrics Tracking**
 2. **Event Type**: Microconversion
 3. **Account ID**: Your Account ID
 4. **Event Label**: Event name (e.g., "add_to_cart", "newsletter_signup")
-5. **Don't count as pageview**: ✅ Enabled (recommended)
-6. **Custom Properties** (optional): Add additional data
+5. **Custom Properties** (optional): Add additional data
    - `product-id`: `12345`
    - `product-price`: `49.99`
-7. **Trigger**: The event that fires the action (button click, form submission, etc.)
+6. **Trigger**: The event that fires the action (button click, form submission, etc.)
 
 ### 3. Conversion (Purchase, Lead, etc.)
 
-To track completed conversions:
+Track completed conversions:
 
 1. Create a new Tag and select **Sealmetrics Tracking**
 2. **Event Type**: Conversion
 3. **Account ID**: Your Account ID
 4. **Event Label**: Conversion name (e.g., "purchase", "lead")
 5. **Conversion Value**: Monetary value (e.g., "99.99")
-6. **Don't count as pageview**: ✅ Enabled (recommended)
-7. **Custom Properties** (optional): Additional conversion data
-8. **Trigger**: Confirmation page or purchase event
+6. **Custom Properties** (optional): Additional conversion data
+7. **Trigger**: Confirmation page or purchase event
 
 ## Template Fields
 
@@ -61,12 +68,20 @@ To track completed conversions:
 |-------|------|-------------|
 | Event Type | Dropdown | Event type: Pageview, Microconversion, Conversion |
 | Account ID | Text | Your Sealmetrics Account ID (required) |
-| Event Label | Text | Descriptive event name (micro/conversion) |
+| Pixel URL | Text | Pixel service URL (default: `https://t.sealmetrics.com`) |
+| Event Label | Text | Descriptive event name (micro/conversion only) |
 | Conversion Value | Text | Monetary value of the conversion |
 | Content Grouping | Text | Page category (pageview only) |
-| Don't count as pageview | Checkbox | Prevents counting as additional pageview |
-| Enable Super-Privacy Tracking | Checkbox | Aggregated data mode without attribution |
 | Custom Properties | Table | Custom key-value properties |
+
+## How It Works
+
+The template uses the SealMetrics v2 tracker (`t.sealmetrics.com/t.js`):
+
+- **Pageview tags** inject the tracker script, which auto-tracks the pageview on load
+- **Conversion/Micro tags** inject the same script (cached, loads once), then call `sealmetrics.conv()` or `sealmetrics.micro()`
+- The tracker automatically detects SPA navigation via the History API — no extra configuration needed
+- No cookies, no localStorage — fully cookieless tracking
 
 ## Custom Properties Examples
 
@@ -81,18 +96,10 @@ quantity: 2
 
 ### Purchase
 ```
-order-id: ORD-2024-001
 payment-method: credit-card
 shipping-method: express
 coupon-code: WELCOME10
 ```
-
-## Features
-
-- **Cookieless**: Cookie-free tracking, 100% GDPR compliant
-- **Super-Privacy Mode**: Aggregated data without source attribution
-- **Custom Properties**: Add custom data to each event
-- **Easy Configuration**: Intuitive interface with conditional fields
 
 ## Support
 
